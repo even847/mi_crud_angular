@@ -1,12 +1,20 @@
+.container {
+  width: 60vw;
+}
+
 table {
   width: 100%;
+  padding-top: 12px;
+  thead {
+    background-color: antiquewhite;
+  }
+
+
 }
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
 
-td, th {
-  width: 25%;
+.actions{
+  display: flex;
+  justify-content: center;
+  gap:16px
 }

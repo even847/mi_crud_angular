@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from '../../services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected crudService: CrudService,protected router:Router) { }
 
   ngOnInit(): void {
   }
 
+
+  back(){
+    this.router.navigate(['/home'])
+  }
 }

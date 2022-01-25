@@ -2,14 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { TokenInterceptorService } from '../interceptors/token-interceptor.service';
+import ITokenResponse from '../models/ITokenResponse.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  //fomulario reactivo
   myForm: FormGroup;
 
   constructor(protected authService: AuthService, protected router: Router) {
@@ -19,30 +22,47 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
+  //resetea el form
   resetForm() {
     this.myForm.reset();
   }
 
+  //se ececuta desde el html
   login() {
+    //tomamos el user y password
     const user = this.myForm.value.user;
     const password = this.myForm.value.password;
-    Swal.fire('Cargando')
+    //Levantamos modal loading
+    Swal.fire({
+      title: 'Cargando',
+      text: 'Loading',
+      showCancelButton: false,
+      showConfirmButton: false,
+    });
+    //si el form es valido
     if (this.myForm.valid) {
+      //fetch al servicio de auth
       this.authService.getLogin(user, password).subscribe(
-        (res) => this.redirectHome(),
+        //si todo ok
+        (res) => this.redirectHome(res),
+        //si ocurre error
         (error) => this.hasError()
       );
     }
   }
 
-  redirectHome() {
+  //esta funcio se ejecuta en caso de todo OK al generar el token
+  redirectHome(res: ITokenResponse) {
+    //guardamos el token en el local store, para q lo lea el interCeptorToken
+    localStorage.setItem('token', JSON.stringify(res.bearer));
+    //redireccion
     this.router.navigate(['/home']);
-    Swal.close()
+    //cerrar el modal
+    Swal.close();
   }
 
+  //esta funcio se ejecuta en caso de Error al generar el token
   hasError() {
-    Swal.fire('Ha Ocurrido un Error')
+    Swal.fire('Ha Ocurrido un Error');
   }
 }

@@ -5,7 +5,7 @@
     <mat-label >User</mat-label>
     <input matInput formControlName='user'>
     <mat-error *ngIf="myForm.controls.user.hasError('required')">
-      Please enter a valid user
+      Ingrese un usario correcto
     </mat-error>
   </mat-form-field>
   <!--Password-->
@@ -13,7 +13,7 @@
     <mat-label>Password</mat-label>
     <input matInput formControlName="password">
     <mat-error *ngIf="myForm.controls.user.hasError('required')">
-      Please enter a valid password
+      Introdusca una contraseña correcta
     </mat-error>
   </mat-form-field>
   </form>
