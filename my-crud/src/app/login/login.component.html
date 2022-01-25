@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="container">
+  <form [formGroup]="myForm">
+  <!--Name-->
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label >User</mat-label>
+    <input matInput formControlName='user'>
+    <mat-error *ngIf="myForm.controls.user.hasError('required')">
+      Please enter a valid user
+    </mat-error>
+  </mat-form-field>
+  <!--Password-->
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password">
+    <mat-error *ngIf="myForm.controls.user.hasError('required')">
+      Please enter a valid password
+    </mat-error>
+  </mat-form-field>
+  </form>
+
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="login()" [disabled]="myForm.invalid">Ok</button>
+    <button mat-raised-button color="warn" (click)=" resetForm()">Cancel</button>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.container{
+display: flex;
+flex-flow: column nowrap;
+justify-content: center;
+align-items: center;
+width: 100vw;
+  img{
+    width: 100px;
+  }
+}

@@ -1,0 +1,35 @@
+.container{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border:1px solid purple;
+  padding:40px;
+  border-radius: 8px;
+}
+
+form{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-label{color: black;}
+
+.buttons{
+  width: 100%;
+  display:flex ;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  gap:8px;
+  padding-top: 8px;
+  button{
+    width: 150px;
+    &:disabled{
+      background-color: grey;
+      color: white;
+    }
+  }
+}
+
