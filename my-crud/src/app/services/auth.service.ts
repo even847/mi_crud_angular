@@ -25,6 +25,6 @@ SECRET_SEED='12345'
     const params = new HttpParams()
     .set('Authorization', this.SECRET_SEED)
     // Se realiza el fetch, pasando la url y los headers
-    return this.http.post<IUser>(this.END_POINT_SUCCESS,{user,password},{params})
+    return this.http.post<IUser>(this.END_POINT_ERROR,{user,password},{params})
    }
 }

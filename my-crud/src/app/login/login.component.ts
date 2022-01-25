@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
   }
 
   hasError() {
-    console.log('Ha Ocurrido un Error');
-    Swal.close()
+    Swal.fire('Ha Ocurrido un Error')
   }
 }
