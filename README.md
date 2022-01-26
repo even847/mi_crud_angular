@@ -11,9 +11,9 @@
 
 ## Forma de instalacion:
 
-0. entrar a la carpeta MyCrud
 1. clonar el repo
-2. npm i
-3. ng serve --o
+2. entrar a la carpeta MyCrud
+3. npm i
+4. ng serve --o
 
 > nota: los services son mock, por ende pueden estar off (apagados al momento del testing)
