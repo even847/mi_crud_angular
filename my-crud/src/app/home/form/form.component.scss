@@ -1,0 +1,23 @@
+form{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border:1px solid purple;
+  padding:40px;
+  border-radius: 8px;
+  background-color: #938e8e71;
+  margin-bottom: 20px ;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  button{
+    width: 100px;
+    &:disabled{
+      background-color: grey;
+      color: white;
+    }
+  }
+}

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import IContact from '../models/IContact.model';
-import IResponseContacts from '../models/IContact.model';
-
+import { IResponseContacts, IContactSave, IContact } from '../models/IContact.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -26,14 +24,14 @@ export class CrudService {
   }
 
   //crear un contacto
-  createContact(contact: IContact): Observable<IContact> {
+  createContact(contact: IContactSave): Observable<IContact> {
     return this.http.post<IContact>(`${this.END_POINT_ALL_CONTACTS}`, {
       contact,
     });
   }
 
   //Edita un contacto
-  editContact(contact: IContact, id: number): Observable<IContact> {
+  editContact(contact: IContactSave, id: number): Observable<IContact> {
     return this.http.put<IContact>(`${this.END_POINT_ALL_CONTACTS}/${id}`, {
       contact,
     });

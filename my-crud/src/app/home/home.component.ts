@@ -1,10 +1,7 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import {  Component, OnInit } from '@angular/core';
 import { CrudService } from '../services/crud.service';
-import IContact from '../models/IContact.model';
 import { Router } from '@angular/router';
+import { IContact } from '../models/IContact.model';
 
 @Component({
   selector: 'app-home',

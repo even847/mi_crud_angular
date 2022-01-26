@@ -1,9 +1,35 @@
 <div class="container">
 
+  <form [formGroup]="myForm">
+    <!--Nombre-->
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label >Nombre</mat-label>
+      <input matInput formControlName='nombre'>
+      <mat-error *ngIf="myForm.controls.nombre.hasError('required')">
+        Ingrese su nombre
+      </mat-error>
+    </mat-form-field>
+    <!--Apellido-->
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Apellido</mat-label>
+      <input matInput formControlName="apellido">
+      <mat-error *ngIf="myForm.controls.apellido.hasError('required')">
+        Introdusca su apellido
+      </mat-error>
+    </mat-form-field>
+     <!--Telefono-->
+     <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Telefono</mat-label>
+      <input matInput formControlName="telefono">
+      <mat-error *ngIf="myForm.controls.telefono.hasError('required')">
+        Introdusca su telefono
+      </mat-error>
+    </mat-form-field>
+    </form>
 
 
   <div class="buttons">
-    <button  mat-raised-button color="primary">Guardar</button>
+    <button  mat-raised-button color="primary" (click)="guardar()" [disabled]="myForm.invalid">Guardar</button>
     <button  mat-raised-button color="warn" (click)="back()">Atras</button>
   </div>
 </div>

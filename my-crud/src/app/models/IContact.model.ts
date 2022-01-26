@@ -1,10 +1,16 @@
-export default interface IContact{
+export  interface IContact{
   id:number,
   nombre:string,
   apellido:string,
   telefono:string
 }
 
-export default interface IResponseContacts{
+export  interface IContactSave{
+  nombre:string,
+  apellido:string,
+  telefono:string
+}
+
+export  interface IResponseContacts{
   contacts: IContact[];
 }

@@ -11,7 +11,7 @@
   <!--Password-->
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Password</mat-label>
-    <input matInput formControlName="password">
+    <input type="password" matInput formControlName="password">
     <mat-error *ngIf="myForm.controls.user.hasError('required')">
       Introdusca una contraseña correcta
     </mat-error>
