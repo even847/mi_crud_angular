@@ -11,6 +11,7 @@
 
 ## Forma de instalacion:
 
+0. entrar a la carpeta MyCrud
 1. clonar el repo
 2. npm i
 3. ng serve --o
